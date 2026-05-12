@@ -17,60 +17,40 @@ export default function Home() {
   return (
     <main className="page">
 
-      {/* Flashing top strip */}
-      <div className="top-strip">
-        ⚡ FLASH SALE ⚡ 99% OFF ⚡ LIMITED TIME ⚡ BUY NOW ⚡
-      </div>
-
-      {/* Breaking ticker */}
-      <div className="ticker">
-        <div className="ticker-text">
-          ✈ LIMITED TIME FLIGHT DEALS ✈
-          ONLY 1 ROOM LEFT ✈ 70% OFF ✈
-          BOOK NOW ✈ FREE BREAKFAST ✈
-        </div>
-      </div>
-
-      {/* Intrusive popup */}
-      <div className="popup">
-        <h2>🔥 SPECIAL OFFER 🔥</h2>
+      {/* Accessible announcement */}
+      <header className="top-strip">
         <p>
-          CLAIM YOUR 99% DISCOUNT NOW BEFORE TIMER ENDS!
+          Summer Sale — Save up to 25%
+          on selected electronics.
         </p>
-
-        <div className="countdown">
-          00 : 01 : 44
-        </div>
-
-        <button className="popup-btn">
-          CLAIM DEAL
-        </button>
-      </div>
-
-      {/* Floating ad */}
-      <div className="floating-ad">
-        BUY NOW!!!
-      </div>
+      </header>
 
       {/* Hero */}
       <section className="hero">
 
-        <h1 className="logo">
-          MEGA DEAL ZONE
-        </h1>
+        <div className="hero-content">
+          <h1 className="logo">
+            Mega Deal Zone
+          </h1>
 
-        <p className="subtitle">
-          BIGGEST SALE OF THE YEAR —
-          EVERYTHING MUST GO —
-          CHEAPEST PRICES —
-          HURRY NOW!!!
-        </p>
+          <p className="subtitle">
+            Shop quality electronics
+            with clear pricing and
+            reliable delivery.
+          </p>
 
-        {/* autoplay video */}
+          <button className="hero-btn">
+            Shop Now
+          </button>
+        </div>
+
+        {/* accessible media */}
         <video
-          autoPlay
-          loop
+          controls
+          muted
+          preload="metadata"
           className="promo-video"
+          aria-label="Promotional video for products"
         >
           <source
             src="https://www.w3schools.com/html/mov_bbb.mp4"
@@ -78,69 +58,38 @@ export default function Home() {
           />
         </video>
 
-        {/* autoplay audio */}
-        <audio autoPlay loop>
-          <source
-            src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
-            type="audio/mp3"
-          />
-        </audio>
       </section>
 
-      {/* flashing banner */}
+      {/* clean banner */}
       <section className="sale-banner">
-        ⚠ WARNING ⚠ ONLY 1 ITEM LEFT ⚠
-        PRICE INCREASES IN 10 MINUTES ⚠
+        <h2>
+          Featured Weekly Deals
+        </h2>
+
+        <p>
+          Discover discounted
+          electronics and accessories.
+        </p>
       </section>
 
-      {/* rotating promo cards */}
-      <section className="promo-grid">
-        <div className="promo-card">
-          <h2>SUPER DEAL</h2>
-          <p>
-            Buy headphones and get 8 random
-            mystery cables FREE!!!
-          </p>
-        </div>
-
-        <div className="promo-card shake">
-          <h2>MEGA OFFER</h2>
-          <p>
-            FREE SHIPPING FOR ONLY
-            4 MINUTES!!!
-          </p>
-        </div>
-
-        <div className="promo-card blink">
-          <h2>FLASH PRICE</h2>
-          <p>
-            LIMITED STOCK —
-            LIMITED STOCK —
-            LIMITED STOCK
-          </p>
-        </div>
-      </section>
-
-      {/* Products */}
+      {/* products */}
       <section className="products">
 
         {products.map((product, index) => (
-          <div
+          <article
             key={index}
             className="product-card"
           >
-            <div className="discount-tag">
-              99% OFF
-            </div>
+            <span className="discount-tag">
+              Save 25%
+            </span>
 
             <h2>{product}</h2>
 
             <p className="product-desc">
-              AMAZING QUALITY +
-              LIMITED EDITION +
-              BEST DEAL +
-              ONLY TODAY +
-              SUPER FAST SHIPPING.
+              Premium quality product
+              with warranty support and
+              fast delivery.
             </p>
 
             <div className="price-row">
@@ -149,132 +98,116 @@ export default function Home() {
               </span>
 
               <span className="price">
-                ${(index + 1) * 5}.99
+                ${(index + 1) * 15}.99
               </span>
             </div>
 
             <div className="button-group">
-              <button className="tiny-btn">
-                BUY
+
+              <button
+                className="primary-btn"
+                aria-label={`Buy ${product}`}
+              >
+                Buy Now
               </button>
 
-              <button className="tiny-btn">
-                +
+              <button
+                className="secondary-btn"
+                aria-label={`Add ${product} to cart`}
+              >
+                Add to Cart
               </button>
 
-              <button className="tiny-btn">
-                GO
-              </button>
             </div>
-
-            {/* hidden clickable */}
-            <div
-              className="ghost-click"
-              title="hidden"
-              tabIndex={0}
-            />
-          </div>
+          </article>
         ))}
+
       </section>
 
-      {/* dense text */}
-      <section className="dense-section">
+      {/* readable content */}
+      <section className="info-section">
 
         <h2>
-          IMPORTANT SALE INFORMATION
+          Shopping Information
         </h2>
 
-        <p className="dense-text">
-          THIS PARAGRAPH IS
-          INTENTIONALLY LONG,
-          DENSE, STRESSFUL,
-          REPETITIVE, HARD TO SCAN,
-          OVERWHELMING, AND
-          VISUALLY DISTRACTING FOR
-          TESTING PURPOSES. THIS
-          STORE HAS THE BEST DEALS,
-          BEST PRICES, CHEAPEST
-          PRODUCTS, FLASH SALES,
-          COUNTDOWN TIMERS,
-          SHAKING BUTTONS,
-          BLINKING ALERTS,
-          FLASHING CONTENT,
-          EXCESSIVE MOTION,
-          PROMOTIONAL OVERLOAD,
-          MULTIPLE POPUPS,
-          RANDOM ATTENTION
-          GRABBING UI PATTERNS,
-          HIDDEN CLICKABLE
-          ELEMENTS, TINY TARGETS,
-          AND MANY OTHER FEATURES
-          THAT MAY CREATE COGNITIVE
-          OVERLOAD.
+        <p className="info-text">
+          Mega Deal Zone offers
+          affordable electronics with
+          secure checkout, transparent
+          pricing, and reliable
+          delivery. Browse our featured
+          products and enjoy a more
+          comfortable shopping
+          experience.
         </p>
 
       </section>
 
-      {/* fake reviews */}
+      {/* reviews */}
       <section className="reviews">
 
         <h2>
-          CUSTOMER REVIEWS
+          Customer Reviews
         </h2>
 
-        <div className="review-card">
+        <article className="review-card">
           ⭐⭐⭐⭐⭐
-          BEST PRODUCT EVER!!!
-          I BOUGHT 12!!!
-        </div>
+          Great product quality and
+          delivery service.
+        </article>
 
-        <div className="review-card shake">
+        <article className="review-card">
           ⭐⭐⭐⭐⭐
-          FAST DELIVERY!!!
-          AMAZING EXPERIENCE!!!
-        </div>
+          Easy checkout process and
+          helpful support.
+        </article>
 
-        <div className="review-card blink">
+        <article className="review-card">
           ⭐⭐⭐⭐⭐
-          EVERYTHING IS SO CHEAP!!!
-        </div>
+          Excellent shopping
+          experience.
+        </article>
 
       </section>
 
-      {/* newsletter popup section */}
+      {/* newsletter */}
       <section className="newsletter">
 
         <h2>
-          JOIN OUR VIP MEMBERSHIP
+          Subscribe for Updates
         </h2>
 
         <p>
-          GET 100 EMAILS DAILY
-          ABOUT SALES!!!
+          Receive occasional product
+          offers and updates.
         </p>
 
+        <label
+          htmlFor="email"
+          className="visually-hidden"
+        >
+          Email address
+        </label>
+
         <input
+          id="email"
+          type="email"
           placeholder="Enter email"
           className="email-input"
         />
 
         <button className="join-btn">
-          JOIN NOW
+          Subscribe
         </button>
 
       </section>
 
-      {/* bottom ad */}
-      <section className="mega-banner">
-        BUY NOW BUY NOW BUY NOW
-        BUY NOW BUY NOW BUY NOW
-      </section>
-
       <footer className="footer">
-        THIS WEBSITE IS
-        INTENTIONALLY DESIGNED
-        TO VIOLATE ACCESSIBILITY
-        RULES FOR AUDIT TOOL
-        TESTING PURPOSES.
+        © 2026 Mega Deal Zone —
+        Accessible Shopping Experience
       </footer>
+
     </main>
   );
 }
